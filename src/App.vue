@@ -1,6 +1,4 @@
-<template>
-  <el-button>124</el-button>
-</template>
+<template></template>
 
 <script lang="ts" setup></script>
 
