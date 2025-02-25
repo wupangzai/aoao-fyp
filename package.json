@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "lodash": "^4.17.21",
     "vue": "^3.2.13"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.15",
     "@vue/babel-plugin-jsx": "^1.2.5",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-typescript": "~5.0.0",
