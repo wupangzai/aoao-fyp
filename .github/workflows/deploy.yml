@@ -3,7 +3,7 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - an_an # 注意是main分支还是master分支
+      - master # 注意是main分支还是master分支
 
 jobs:
   build-and-deploy:
