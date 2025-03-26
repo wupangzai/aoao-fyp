@@ -33,16 +33,16 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
           AOAO_PATH: ${{ secrets.AOAO_PATH }}
-        run: |
-          echo "服务器地址: [$SERVER_HOST]"
-          ping -c 3 $SERVER_HOST
-          nslookup $SERVER_HOST
-
         # run: |
-        #   mkdir -p ~/.ssh
-        #   echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        #   chmod 600 ~/.ssh/id_rsa
-        #   ssh -o StrictHostKeyChecking=no root@$SERVER_HOST "echo 'SSH Connection Successful!'"
+        #   echo "服务器地址: [$SERVER_HOST]"
+        #   ping -c 3 $SERVER_HOST
+        #   nslookup $SERVER_HOST
+
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -o StrictHostKeyChecking=no root@$SERVER_HOST "echo 'SSH Connection Successful!'"
 
       # - name: 🚀 使用 SCP 上传文件到服务器
       #   run: |
