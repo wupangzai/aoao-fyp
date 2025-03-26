@@ -29,10 +29,10 @@ jobs:
       #   port: ${{ secrets.SERVER_PORT }}
 
       - name: Setup SSH Key
-    run: |
-    mkdir -p ~/.ssh
-    echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-    chmod 600 ~/.ssh/id_rsa
-    ssh -o StrictHostKeyChecking=no user@your-server-ip "echo 'SSH Connection Successful!'"
-  env:
-    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh -o StrictHostKeyChecking=no user@your-server-ip "echo 'SSH Connection Successful!'"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
