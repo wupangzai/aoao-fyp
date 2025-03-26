@@ -13,7 +13,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: "SIGN UP",
+  title: "666666",
   bgColor: "#D0CECF",
 });
 
