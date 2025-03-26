@@ -33,6 +33,12 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
           AOAO_PATH: ${{ secrets.AOAO_PATH }}
+      - name: 🛠️ 调试 SSH 变量
+        run: |
+          echo "服务器地址: [$SERVER_HOST]"
+          ping -c 3 $SERVER_HOST
+          nslookup $SERVER_HOST
+
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
