@@ -33,6 +33,6 @@ jobs:
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh -o StrictHostKeyChecking=no root@http://8.134.87.25 "echo 'SSH Connection Successful!'"
+          ssh -o StrictHostKeyChecking=no root@8.134.87.25 "echo 'SSH Connection Successful!'"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
