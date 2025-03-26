@@ -34,10 +34,12 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_HOST }} "echo 'SSH Connection Successful!'"
+          ssh -o StrictHostKeyChecking=no root@$SERVER_HOST "echo 'SSH Connection Successful!'"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          AOAO_PATH: ${{ secrets.AOAO_PATH }}
 
       - name: Deploy to Server
         run: |
-          scp -i ~/.ssh/id_rsa -r dist/ root@${{ secrets.SERVER_HOST }}:${{ secrets.AOAO_PATH }}
+          scp -i ~/.ssh/id_rsa -r dist/ root@$secrets.SERVER_HOST:$secrets.AOAO_PATH
