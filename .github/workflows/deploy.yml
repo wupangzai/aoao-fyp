@@ -5,20 +5,25 @@ on:
     branches:
       - master # 注意是main分支还是master分支
 
+env:
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+  SERVER_HOST: ${{ secrets.SERVER_HOST }}
+  AOAO_PATH: ${{ secrets.AOAO_PATH }}
+
 jobs:
   npm-build:
     name: npm-build工作
     runs-on: ubuntu-latest
 
     steps:
-      - name: 读取仓库内容 🤔
-        uses: actions/checkout@v4 # 复制文件到github，解决ubuntu路径问题
+      # - name: 读取仓库内容 🤔
+      #   uses: actions/checkout@v4 # 复制文件到github，解决ubuntu路径问题
 
-      - name: 安装依赖⚙
-        run: npm install
+      # - name: 安装依赖⚙
+      #   run: npm install
 
-      - name: 项目打包中📦
-        run: npm run build
+      # - name: 项目打包中📦
+      #   run: npm run build
 
       # - name: Deploy to Server via SSH
       #   uses: appleboy/ssh-action@master
@@ -28,18 +33,13 @@ jobs:
       #   password: ${{ secrets.SERVER_PASSWORD }} # 服务器密码或私钥，从secrets获取，推荐使用私钥更安全
       #   port: ${{ secrets.SERVER_PORT }} test2
 
-      #📂 配置 SSH 访问服务器
-      - name: Setup SSH Key
+      - name: 📂 配置 SSH 访问服务器
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh -o StrictHostKeyChecking=no root@$SERVER_HOST "echo 'SSH Connection Successful!'"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SERVER_HOST: ${{ secrets.SERVER_HOST }}
-          AOAO_PATH: ${{ secrets.AOAO_PATH }}
 
-      - name: Deploy to Server
-        run: |
-          scp -i ~/.ssh/id_rsa -r dist/ root@$SERVER_HOST:$AOAO_PATH
+      # - name: 🚀 使用 SCP 上传文件到服务器
+      #   run: |
+      #     scp -i ~/.ssh/id_rsa -r dist/ root@$SERVER_HOST:$AOAO_PATH
