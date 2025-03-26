@@ -42,4 +42,4 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          scp -i ~/.ssh/id_rsa -r dist/ root@$secrets.SERVER_HOST:$secrets.AOAO_PATH
+          scp -i ~/.ssh/id_rsa -r dist/ root@$SERVER_HOST:$AOAO_PATH
