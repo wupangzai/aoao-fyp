@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - use: actions/checkout/v4 # 复制文件到github，解决ubuntu路径问题
+      - uses: actions/checkout/v4 # 复制文件到github，解决ubuntu路径问题
       - run: pwd
       - run: npm --version
       - run: npm install
