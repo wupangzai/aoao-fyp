@@ -14,10 +14,6 @@ jobs:
       - name: 读取仓库内容 🤔
       - uses: actions/checkout@v4 # 复制文件到github，解决ubuntu路径问题
 
-      - name: 路径 & npm 版本查看
-      - run: pwd
-      - run: npm --version
-
       - name: 安装依赖⚙
       - run: npm install
 
