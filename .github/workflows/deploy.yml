@@ -26,7 +26,7 @@ jobs:
       #   host: ${{ secrets.SERVER_HOST }} # 服务器地址，从secrets获取
       #   username: ${{ secrets.SERVER_USERNAME }} # 服务器用户名，从secrets获取
       #   password: ${{ secrets.SERVER_PASSWORD }} # 服务器密码或私钥，从secrets获取，推荐使用私钥更安全
-      #   port: ${{ secrets.SERVER_PORT }} test
+      #   port: ${{ secrets.SERVER_PORT }} test2
 
       - name: Setup SSH Key
         run: |
