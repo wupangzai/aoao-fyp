@@ -36,3 +36,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@8.134.87.25 "echo 'SSH Connection Successful!'"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to Server
+        run: |
+          scp -i ~/.ssh/id_rsa -r dist/ root@8.134.87.25:/www/wwwroot/aoao
