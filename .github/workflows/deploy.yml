@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: 打包Vue项目
 
 on:
   push:
@@ -7,11 +7,19 @@ on:
 
 jobs:
   npm-build:
+    name: npm-build工作
     runs-on: ubuntu-latest
 
     steps:
+      - name: 读取仓库内容 🤔
       - uses: actions/checkout@v4 # 复制文件到github，解决ubuntu路径问题
+
+      - name: 路径 & npm 版本查看
       - run: pwd
       - run: npm --version
+
+      - name: 安装依赖⚙
       - run: npm install
+
+      - name: 项目打包中📦
       - run: npm run build
