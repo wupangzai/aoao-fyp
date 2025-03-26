@@ -19,3 +19,11 @@ jobs:
 
       - name: 项目打包中📦
         run: npm run build
+
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@master
+        with:
+        host: ${{ secrets.SERVER_HOST }} # 服务器地址，从secrets获取
+        username: ${{ secrets.SERVER_USERNAME }} # 服务器用户名，从secrets获取
+        password: ${{ secrets.SERVER_PASSWORD }} # 服务器密码或私钥，从secrets获取，推荐使用私钥更安全
+        port: ${{ secrets.SERVER_PORT }}
