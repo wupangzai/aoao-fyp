@@ -28,14 +28,14 @@ jobs:
       #   password: ${{ secrets.SERVER_PASSWORD }} # 服务器密码或私钥，从secrets获取，推荐使用私钥更安全
       #   port: ${{ secrets.SERVER_PORT }} test2
 
-      - name: Setup SSH Key
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh -o StrictHostKeyChecking=no root@8.134.87.25 "echo 'SSH Connection Successful!'"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      # - name: Setup SSH Key
+      #   run: |
+      #     mkdir -p ~/.ssh
+      #     echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+      #     chmod 600 ~/.ssh/id_rsa
+      #     ssh -o StrictHostKeyChecking=no root@8.134.87.25 "echo 'SSH Connection Successful!'"
+      #   env:
+      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy to Server
         run: |
