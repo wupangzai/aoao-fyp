@@ -1,11 +1,11 @@
 <template>
-  <div class="sign-form">
+  <div class="login-form">
     <van-cell-group inset>
       <van-field v-model="account" label="Account" placeholder="请输入账号" />
       <van-field v-model="password" label="Password" placeholder="请输入密码" />
       <van-button class="login-btn" :color="props.btnColor"
-        >Login Now</van-button
-      >
+        >SignUp For Free
+      </van-button>
     </van-cell-group>
   </div>
 </template>
@@ -26,7 +26,7 @@ const password = ref("");
 </script>
 
 <style lang="less" scoped>
-.sign-form {
+.login-form {
   width: 70%;
   // height: 40%;
   margin-top: -25%;

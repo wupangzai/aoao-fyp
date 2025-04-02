@@ -18,6 +18,8 @@
         data-aos="fade-down-left"
       ></login-card>
 
+      <sign-form v-if="isDoingSignUp" data-aos="flip-left"></sign-form>
+
       <div class="footer" v-if="showFooter">
         <van-tag
           round
@@ -37,6 +39,7 @@ import { computed, ref } from "vue";
 import TopBar from "@/components/login/top-bar.vue";
 import LoginCard from "@/components/login/login-card.vue";
 import LoginForm from "@/components/login/login-form.vue";
+import SignForm from "@/components/login/sign-form.vue";
 
 const actionType = ref("");
 
@@ -74,11 +77,11 @@ const btnColor = computed(() => {
 });
 
 const getSignUpCardBgColor = computed(() => {
-  return isDoingSignUp ? "#D0CECF" : "#3B4356";
+  return isDoingSignUp.value ? "#D0CECF" : "#3B4356";
 });
 
 const showFooter = computed(() => {
-  return isDoingLogin || isDoingSignUp;
+  return isDoingLogin.value || isDoingSignUp.value;
 });
 </script>
 
