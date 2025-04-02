@@ -30,17 +30,11 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const emits = defineEmits<{
-  (e: "loginAction", action: "login"): void;
-  (e: "signAction", action: "sign"): void;
+  (e: "loginAction", action: CardType): void;
 }>();
 
 function doAction() {
-  if (props.cardType === "login") {
-    emits("loginAction", "login");
-    return;
-  }
-
-  emits("signAction", "sign");
+  emits("loginAction", props.cardType);
 }
 
 const bgColor = computed(() => {
