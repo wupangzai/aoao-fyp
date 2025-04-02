@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: 读取仓库内容 🤔
-        uses: actions/checkout@v4 # 复制文件到github，解决ubuntu路径问题
+        uses: actions/checkout@v4 # 复制文件到github，解决ubuntu路径问 题
 
       - name: 安装依赖⚙
         run: npm install
